@@ -357,6 +357,29 @@
     .area-media { order: -1; }
   }
 
+  /* --- Gallery --- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 10px 22px rgba(11,19,32,0.12);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.06); }
+  @media (max-width: 800px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  }
+
   /* --- CTA / Contact --- */
   .cta-band {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
@@ -771,6 +794,31 @@
       </div>
       <div class="area-media">
         <img src="assets/electrician-commercial.webp" alt="Electrician in safety gear standing in front of a commercial electrical panel room" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Our Work</span>
+        <h2>Recent Projects Across <span data-cfg-region>Kern County</span></h2>
+        <p>A look at real panels, installs, and troubleshooting calls completed by our crew.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/gallery-1.jpg" alt="Electrician reviewing wiring diagrams in front of an open industrial panel" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-2.webp" alt="Electrician cross-referencing a schematic against panel wiring" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-3.webp" alt="Two electricians testing a panel together with a multimeter" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-4.jpg" alt="Close-up of gloved hands testing panel wiring with meter probes" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
