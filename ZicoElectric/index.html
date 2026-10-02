@@ -33,13 +33,10 @@
       <a href="#quote">Free quote</a>
     </nav>
     <div class="header-ctas">
-      <div class="demo-cta">
-        <a class="btn btn-call btn-demo" href="https://tradecallpro.co/#demo" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 15a3.500 3.500 0 0 0 3.500-3.500V6a3.500 3.500 0 0 0-7 0v5.500A3.500 3.500 0 0 0 12 15zm6-3.500a6 6 0 0 1-12 0H4.500a7.500 7.500 0 0 0 6.750 7.460V22h1.500v-3.040A7.500 7.500 0 0 0 19.500 11.500z"/></svg>
-          <span>This could be you</span><span class="sr-only"> (opens the Tradecall Pro voice AI demo in a new tab)</span>
-        </a>
-        <p class="demo-note">Live demo by Tradecall Pro. Tap to hear the AI agent that answers when you can't.</p>
-      </div>
+      <button class="btn btn-call btn-demo" id="demoOpen" type="button" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 15a3.500 3.500 0 0 0 3.500-3.500V6a3.500 3.500 0 0 0-7 0v5.500A3.500 3.500 0 0 0 12 15zm6-3.500a6 6 0 0 1-12 0H4.500a7.500 7.500 0 0 0 6.750 7.460V22h1.500v-3.040A7.500 7.500 0 0 0 19.500 11.500z"/></svg>
+        <span>This could be you</span>
+      </button>
       <a class="btn btn-ghost header-call" href="tel:+17477770035" aria-label="Call (747) 777-0035">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
         <span class="call-num">(747) 777-0035</span>
@@ -49,7 +46,6 @@
       <span></span><span></span><span></span>
     </button>
   </div>
-  <p class="demo-strip">Live demo by Tradecall Pro. Tap "This could be you" to hear the AI agent that answers when you can't.</p>
 </header>
 
 <main id="main">
@@ -378,11 +374,33 @@
   </div>
 </footer>
 
+<dialog class="demo-modal" id="demoModal" aria-labelledby="demoTitle">
+  <button class="modal-x" id="demoClose" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg>
+  </button>
+  <p class="eyebrow">Voice AI demo</p>
+  <h2 id="demoTitle">Hear it in action</h2>
+  <p class="modal-copy">You're about to experience how a live AI agent answers your phones when you can't pick up. Tap the call button, allow your microphone, and play the homeowner for a minute.</p>
+  <div class="demo-box">
+    <button class="btn btn-call btn-lg btn-block" id="demoCall" type="button">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+      <span class="lbl">Call now</span>
+    </button>
+    <p class="demo-timer" id="demoTimer" hidden>0:00</p>
+    <p class="demo-status" id="demoStatus" role="status" aria-live="polite"></p>
+    <div id="demoTs"></div>
+    <p class="demo-after" id="demoAfter" hidden>Want this answering your shop's phones? <a href="https://tradecallpro.co/" target="_blank" rel="noopener">Start your free trial with Tradecall Pro</a>.</p>
+    <p class="demo-fallback">Prefer your phone? Dial the demo line: <a href="tel:+17372496115">(737) 249-6115</a></p>
+  </div>
+  <p class="modal-fine">Live demo by Tradecall Pro.</p>
+</dialog>
+
 <div class="mobile-bar" id="mobileBar">
   <a class="btn btn-call" href="tel:+17477770035">Call now</a>
   <a class="btn btn-ghost" href="#quote">Free quote</a>
 </div>
 
 <script src="script.js"></script>
+<script src="demo.js"></script>
 </body>
 </html>
