@@ -270,3 +270,22 @@ body{padding-bottom:84px}
 }
 .hero h1,.hero .lead{text-shadow:0 2px 14px rgba(0,0,0,.6)}
 .hero .lead{color:#d6d6cf}
+
+/* standing header spec: logo lockup 160px wide desktop / 110px wide mobile, nav menu with hamburger below 1180px */
+.site-header .brand{flex:none;zoom:.984}
+@media (max-width:640px){
+  .site-header .brand{zoom:.677}
+  .site-header .brand-text{display:flex}
+  .header-row.wrap{padding:0 10px}
+  .header-row{gap:6px}
+  .header-ctas{gap:5px}
+  .btn-demo{padding:10px 9px}
+  .header-call{padding:10px}
+  .menu-btn{width:40px;flex:none}
+}
+@media (min-width:980px) and (max-width:1179px){
+  .menu-btn{display:flex}
+  .nav:not(.open){display:none}
+  .nav.open{margin-left:0}
+}
+@media (min-width:1180px){.nav{gap:20px;margin-left:24px}}
