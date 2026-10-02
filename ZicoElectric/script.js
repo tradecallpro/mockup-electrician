@@ -11,6 +11,30 @@
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
+  // Blog nav item opens the sample-post modal instead of scrolling
+  var blogLink = document.getElementById('blogLink');
+  var blogModal = document.getElementById('blogModal');
+  var blogClose = document.getElementById('blogClose');
+  function visible(el) { return el.offsetParent !== null; }
+  blogLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    setMenu(false);
+    if (typeof blogModal.showModal === 'function') blogModal.showModal(); else blogModal.setAttribute('open', '');
+    blogModal.scrollTop = 0;
+    blogClose.focus();
+  });
+  function closeBlog() {
+    if (typeof blogModal.close === 'function') blogModal.close(); else blogModal.removeAttribute('open');
+  }
+  blogClose.addEventListener('click', closeBlog);
+  blogModal.addEventListener('click', function (e) {
+    if (e.target !== blogModal) return;
+    var r = blogModal.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeBlog();
+  });
+  // ESC closes the dialog natively; focus goes back to the nav link, or the hamburger when the menu is collapsed.
+  blogModal.addEventListener('close', function () { (visible(blogLink) ? blogLink : btn).focus(); });
+
   // "Quote this job" links preselect the service in the form
   var select = document.getElementById('service');
   document.querySelectorAll('[data-service]').forEach(function (a) {

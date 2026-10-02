@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -31,6 +31,7 @@
       <a href="#why">Why ZICO</a>
       <a href="#work">Recent Work</a>
       <a href="#reviews">Reviews</a>
+      <a href="#blog" id="blogLink" aria-haspopup="dialog">Blog</a>
       <a href="#quote">Contact</a>
     </nav>
     <div class="header-ctas">
@@ -417,6 +418,42 @@
   </div>
 </footer>
 
+<dialog class="demo-modal blog-modal" id="blogModal" aria-labelledby="blogModalTitle">
+  <button class="modal-x" id="blogClose" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </button>
+  <p class="eyebrow">Blog</p>
+  <h2 id="blogModalTitle" class="sr-only">Blog</h2>
+  <article class="post">
+    <span class="badge">Sample post</span>
+    <h3 class="post-title">5 Signs Your Burbank Home Needs an Electrical Panel Upgrade</h3>
+    <p class="post-meta">Sample post for illustration. Not written by ZICO Global Electric.</p>
+    <p>Your electrical panel works quietly in the background until it doesn't. If you own a home in Burbank or anywhere in the San Fernando Valley, here are five signs it may be time to have a licensed electrician take a look.</p>
+    <h4>1. Breakers that keep tripping</h4>
+    <p>A breaker that trips now and then is doing its job. One that trips every week, or the same one every time you run the microwave and toaster together, usually means the circuit or the panel is overloaded.</p>
+    <h4>2. Flickering or dimming lights</h4>
+    <p>Lights that dim when the AC kicks on or a big appliance starts can point to a panel or wiring that can't keep up. Don't just live with it.</p>
+    <h4>3. Buzzing, heat, or a burning smell</h4>
+    <p>A panel should be quiet and cool. If you hear buzzing, feel warmth, or smell something burnt, turn off what you can and call an electrician the same day.</p>
+    <h4>4. Adding an EV charger, ADU, or remodel</h4>
+    <p>A Level 2 charger, a backyard ADU, or a kitchen remodel all pull real power. Many older Burbank panels need an upgrade or a sub-panel before they can handle the load safely.</p>
+    <h4>5. An older panel with no room left</h4>
+    <p>If your panel is full, the breakers are hard to find, or you're still running fuses, an upgrade gives you room to grow and a safer setup.</p>
+    <p>Not sure where your panel stands? A quick look from a licensed electrician answers it fast. Call for a free quote anywhere in Burbank and the Los Angeles area.</p>
+  </article>
+  <aside class="gets" aria-labelledby="getsTitle">
+    <p class="eyebrow">What you get</p>
+    <h3 id="getsTitle">Free Monthly Blog Posts.</h3>
+    <ul class="ticks">
+      <li>Fresh content Google rewards: every post is another page that can rank for local searches.</li>
+      <li>Answers the questions customers are already typing into Google, like "how much does an EV charger install cost in Burbank".</li>
+      <li>Written for their trade and their town, published to their site, they lift zero fingers.</li>
+    </ul>
+    <p class="gets-line">Every Tradecall Pro website includes at least one blog post per month.</p>
+    <a class="btn btn-call btn-lg" href="https://tradecallpro.co/#trial" target="_blank" rel="noopener">Get Started<span class="sr-only"> (opens the Tradecall Pro free trial in a new tab)</span></a>
+  </aside>
+</dialog>
+
 <dialog class="demo-modal" id="demoModal" aria-labelledby="demoTitle">
   <button class="modal-x" id="demoClose" type="button" aria-label="Close">
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2.500" stroke-linecap="round"/></svg>
@@ -443,7 +480,7 @@
   <a class="btn btn-ghost" href="#quote">Free quote</a>
 </div>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 <script src="demo.js?v=7"></script>
 </body>
 </html>
