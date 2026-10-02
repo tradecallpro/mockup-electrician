@@ -17,6 +17,15 @@
     a.addEventListener('click', function () { select.value = a.getAttribute('data-service'); });
   });
 
+  // Hide the mobile call bar while the quote section is in view
+  var bar = document.getElementById('mobileBar');
+  var quote = document.getElementById('quote');
+  if (bar && quote && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) {
+      bar.classList.toggle('hide', en[0].isIntersecting);
+    }, { threshold: 0.15 }).observe(quote);
+  }
+
   // Quote form
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('success');
