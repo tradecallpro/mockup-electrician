@@ -248,3 +248,13 @@ body{padding-bottom:84px}
 .platform-tag span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none!important;white-space:nowrap}
 .platform-tag img{width:auto;height:24px}
 @media (min-width:760px){.platform-tag{align-items:center}}
+
+/* v7: single CTA, quieter lockup */
+.plan-trial{margin:6px 0 0;color:var(--muted);font-size:.92rem}
+.plan-cta{margin-top:22px}
+.plans{align-items:stretch}
+.platform-tag{flex-direction:column;align-items:flex-start;gap:8px}
+.platform-tag span{font-size:.68rem}
+.platform-tag img{height:22px;width:auto;max-width:none}
+@media (min-width:760px){.platform-tag{align-items:flex-end}}
+.ticks{align-content:start}
