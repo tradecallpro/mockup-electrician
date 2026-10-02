@@ -16,7 +16,7 @@
  *      electrician demo agent (default stays the painting agent when omitted).
  *   3. Add tradecallpro.github.io to the Turnstile widget's allowed hostnames
  *      (Cloudflare dashboard) and to any hostname check in the siteverify step.
- * Until then the call fails politely and the modal shows the dial-in number.
+ * Until then the call fails politely and the modal offers Try again.
  */
 (function () {
   'use strict';
@@ -37,6 +37,7 @@
   var lbl = btn.querySelector('.lbl');
   var statusEl = document.getElementById('demoStatus');
   var timerEl = document.getElementById('demoTimer');
+  var failEl = document.getElementById('demoFail');
   var afterEl = document.getElementById('demoAfter');
   var tsBox = document.getElementById('demoTs');
 
@@ -121,14 +122,14 @@
 
   /* ---------- UI state ---------- */
   var REFUSALS = {
-    region: 'The live demo is available to visitors in the US. You can still dial the number below.',
-    challenge_failed: 'We could not verify your browser. Reload the page and try again, or dial the number below.',
+    region: 'The live demo is only available to visitors in the US.',
+    challenge_failed: 'We could not verify your browser. Reload the page and try again.',
     visitor_gap: 'Give it a few seconds before calling again.',
-    visitor_hour: 'You have reached the demo limit for now. Dial the number below, or come back a little later.',
-    visitor_day: 'You have reached the demo limit for today. Dial the number below, or come back tomorrow.',
-    busy: 'The demo is busy right now. Try again in a minute, or dial the number below.',
-    daily_cap: 'The live demo has reached its limit for today. Dial the number below, or try again tomorrow.',
-    rate_limited: 'A lot of people are trying the demo right now. Give it a minute, or dial the number below.'
+    visitor_hour: 'You have reached the demo limit for now. Come back a little later.',
+    visitor_day: 'You have reached the demo limit for today. Come back tomorrow.',
+    busy: 'The demo is busy right now. Try again in a minute.',
+    daily_cap: 'The live demo has reached its limit for today. Try again tomorrow.',
+    rate_limited: 'A lot of people are trying the demo right now. Give it a minute.'
   };
   var LABELS = { idle: 'Call now', connecting: 'Connecting...', live: 'End call', ended: 'Call again', error: 'Try again' };
 
@@ -139,6 +140,7 @@
     btn.classList.toggle('end', next === 'live');
     timerEl.hidden = next !== 'live';
     afterEl.hidden = next !== 'ended';
+    failEl.hidden = next !== 'error';
   }
   function say(t) { statusEl.textContent = t; }
   function clock(ms) {
@@ -189,11 +191,11 @@
       data = await res.json().catch(function () { return {}; });
       if (!res.ok || !data.access_token) {
         var code = (data && data.error) || String(res.status);
-        return fail(REFUSALS[code] || 'The live demo is not available right now. Dial the number below instead.');
+        return fail(REFUSALS[code] || 'The live demo is not available right now.');
       }
       await loadSdk();
     } catch (e) {
-      return fail('We could not reach the live demo. Dial the number below instead.');
+      return fail('We could not reach the live demo. Check your connection and try again.');
     }
 
     try {
@@ -202,7 +204,7 @@
       client.on('agent_start_talking', function () { if (state === 'live') say('Agent is speaking...'); });
       client.on('agent_stop_talking', function () { if (state === 'live') say('Your turn. Go ahead!'); });
       client.on('call_ended', onEnded);
-      client.on('error', function () { fail('The call dropped. Try again, or dial the number below.'); });
+      client.on('error', function () { fail('The call dropped. Try again.'); });
       // Pass all four values through; transport is "gateway", not LiveKit.
       await client.startCall({
         accessToken: data.access_token,
@@ -213,15 +215,15 @@
     } catch (err) {
       var denied = err && (err.name === 'NotAllowedError' || /permission|denied|not allowed/i.test(String(err.message || err)));
       fail(denied
-        ? 'Your browser blocked the microphone. Allow it and try again, or dial the number below.'
-        : 'We could not start the call from your browser. Dial the number below instead.');
+        ? 'Your browser blocked the microphone. Allow it and try again.'
+        : 'We could not start the call from your browser.');
     }
   }
 
   btn.addEventListener('click', function () {
     if (state === 'connecting') return;
     if (state === 'live') { if (client) client.stopCall(); return; }
-    if (!supported) { location.href = 'tel:+17372496115'; return; }
+    if (!supported) { fail('Your browser does not support voice calls. Try a current version of Chrome, Safari, or Firefox.'); return; }
     start();
   });
   window.addEventListener('pagehide', function () { teardown(); });

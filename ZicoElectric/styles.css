@@ -204,7 +204,7 @@ body{padding-bottom:84px}
 .demo-timer{font:800 2.4rem/1 var(--head);letter-spacing:.06em;color:var(--amber);margin:16px 0 0}
 .demo-status{min-height:1.5em;margin:12px 0 0;color:var(--text);font-weight:600}
 .demo-after{margin:10px 0 0;color:var(--muted)}
-.demo-fallback{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.demo-fail{margin:16px 0 0;font:800 1.5rem/1.1 var(--head);text-transform:uppercase;color:#ff9d90}
 .modal-fine{margin:16px 0 0;text-align:center;color:var(--muted);font-size:.8rem}
 
 /* v3: gallery hover (pointer devices only, no motion if reduced) */
