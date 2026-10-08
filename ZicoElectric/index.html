@@ -391,6 +391,7 @@
         <span class="brand-text"><span class="brand-name">ZICO</span><span class="brand-sub">Global Electric</span></span>
       </a>
       <p class="foot-small">ZICO Global Electric, Inc.</p>
+      <button class="ada-btn" id="adaBtn" type="button" aria-haspopup="dialog">ADA Ready</button>
     </div>
     <address>
       <a href="tel:+17477770035">(747) 777-0035</a><br>
@@ -417,6 +418,16 @@
     <p class="credit">Site concept prepared by Tradecall Pro</p>
   </div>
 </footer>
+
+<dialog class="demo-modal ada-modal" id="adaModal" aria-labelledby="adaTitle" aria-modal="true" role="dialog">
+  <button class="modal-x" id="adaClose" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </button>
+  <h2 id="adaTitle">ADA Ready</h2>
+  <p>The ADA requires business websites to be usable by people with disabilities. Plaintiff firms now scan small business sites in bulk, and over 3,100 federal accessibility suits were filed last year. Most of them settle for five figures.</p>
+  <p>Every web presence Tradecall Pro delivers is built to the WCAG 2.1 AA accessibility guidelines from day one: proper contrast, full keyboard navigation, alt text on every image, labeled forms. It is in the code itself, not a plugin bolted on afterward.</p>
+  <p class="ada-close-line">Your site books jobs and keeps you out of the demand-letter pile at the same time.</p>
+</dialog>
 
 <dialog class="demo-modal blog-modal" id="blogModal" aria-labelledby="blogModalTitle">
   <button class="modal-x" id="blogClose" type="button" aria-label="Close">
@@ -482,5 +493,6 @@
 
 <script src="script.js?v=8"></script>
 <script src="demo.js?v=7"></script>
+<script src="ada.js?v=1"></script>
 </body>
 </html>
