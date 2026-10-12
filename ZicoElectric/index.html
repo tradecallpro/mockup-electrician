@@ -21,9 +21,9 @@
 
 <header class="site-header" id="top">
   <div class="wrap header-row">
-    <a class="brand" href="#top" aria-label="ZICO Global Electric, home">
+    <a class="brand" href="#top" aria-label="ZICO Global Electric">
       <svg class="bolt" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M18.5 2 6 18.5h7.5L11 30l14-18h-8z" fill="currentColor"/></svg>
-      <span class="brand-text"><span class="brand-name">ZICO</span><span class="brand-sub">Global Electric</span></span>
+      <span class="brand-text"><span class="brand-name">ZICO</span> <span class="brand-sub">Global Electric</span></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#services">Services</a>
@@ -388,7 +388,7 @@
     <div>
       <a class="brand" href="#top" aria-label="ZICO Global Electric, back to top">
         <svg class="bolt" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><path d="M18.5 2 6 18.5h7.5L11 30l14-18h-8z" fill="currentColor"/></svg>
-        <span class="brand-text"><span class="brand-name">ZICO</span><span class="brand-sub">Global Electric</span></span>
+        <span class="brand-text"><span class="brand-name">ZICO</span> <span class="brand-sub">Global Electric</span></span>
       </a>
       <p class="foot-small">ZICO Global Electric, Inc.</p>
       <button class="ada-btn" id="adaBtn" type="button" aria-haspopup="dialog">ADA Ready</button>
@@ -415,6 +415,7 @@
   </div>
   <div class="wrap legal">
     <p>&copy; 2026 ZICO Global Electric, Inc. All rights reserved.</p>
+    <p><a href="#" data-a11y-statement>Accessibility</a></p>
     <p class="credit">Site concept prepared by Tradecall Pro</p>
   </div>
 </footer>
@@ -486,7 +487,7 @@
   <p class="modal-fine">Live demo by Tradecall Pro.</p>
 </dialog>
 
-<div class="mobile-bar" id="mobileBar">
+<div class="mobile-bar" id="mobileBar" role="region" aria-label="Call or request a quote">
   <a class="btn btn-call" href="tel:+17477770035">Call now</a>
   <a class="btn btn-ghost" href="#quote">Free quote</a>
 </div>
@@ -494,5 +495,6 @@
 <script src="script.js?v=8"></script>
 <script src="demo.js?v=7"></script>
 <script src="ada.js?v=1"></script>
+<script src="a11y-statement.js?v=1" defer></script>
 </body>
 </html>
